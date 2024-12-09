@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+</head>
+<body>
+    <h1>Crop Prediction System</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="N">N:</label>
+        <input type="text" id="N" name="N"><br><br>
+        <label for="P">P:</label>
+        <input type="text" id="P" name="P"><br><br>
+        <label for="K">K:</label>
+        <input type="text" id="K" name="K"><br><br>
+        <label for="temperature">Temperature:</label>
+        <input type="text" id="temperature" name="temperature"><br><br>
+        <label for="humidity">Humidity:</label>
+        <input type="text" id="humidity" name="humidity"><br><br>
+        <label for="ph">pH:</label>
+        <input type="text" id="ph" name="ph"><br><br>
+        <label for="rainfall">Rainfall:</label>
+        <input type="text" id="rainfall" name="rainfall"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    color: #333; /* Dark text for contrast */
+    background-color: #cfbdbd4a; /* Light background */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('dharara.webp') no-repeat center center fixed; /* Use dharara.webp as the background image */
+    background-size: cover;
+    opacity: 0.2; /* Light opacity for background image */
+    z-index: -1; /* Ensure the image is behind other elements */
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(193, 193, 193, 0.111); /* Semi-transparent white background */
+    padding: 15px 30px;
+    position: relative;
+    z-index: 1;
+    border-radius: 15px; /* More rounded corners */
+    margin: 20px; /* More space around the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for navbar */
+    transition: background-color 0.3s;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar a, .dropbtn {
+    color: #333; /* Dark text color */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px; /* More rounded corners for links */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.navbar a::after, .dropbtn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #333; /* Dark underline */
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar a:hover::after, .dropdown:hover .dropbtn::after {
+    width: 100%;
+    left: 0;
+    background: #333; /* Dark underline */
+}
+
+.active::after {
+    width: 100%;
+    left: 0;
+    background: #333; /* Dark underline */
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95); /* More transparent white background */
+    min-width: 200px; /* Wider dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); /* Soft shadow for dropdown */
+    z-index: 1;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 10px; /* More rounded corners */
+    transform: translateY(10px); /* Slide effect */
+}
+
+.dropdown-content a {
+    color: #333; /* Dark text color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s, padding-left 0.3s;
+    border-radius: 5px; /* More rounded corners for dropdown links */
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-left: 20px; /* Indentation effect */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide effect */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 20px; /* Adjust padding to accommodate fixed navbar */
+    overflow: auto;
+}
+
+.week-content {
+    width: 90%;
+    max-width: 1200px; /* Limit the width of the content */
+    position: relative;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+    color: #333; /* Dark text color */
+}
+
+.report-container {
+    display: flex;
+    justify-content: center; /* Center align items */
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.video-container {
+    flex: 2; /* Adjust flex ratio to control size */
+    min-width: 400px; /* Ensure minimum width */
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+.report-content {
+    flex: 1; /* Adjust flex ratio to control size */
+    min-width: 300px; /* Ensure minimum width */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background to show bg image */
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+    text-align: left;
+}
+
+.report-content h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Dark text color */
+}
+
+.report-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #333; /* Dark text color */
+}
+
+.report-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.1em;
+    color: #333; /* Dark text color */
+}
+
+.report-content ul li {
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 100px 10px 10px;
+    }
+    .week-content {
+        width: 100%;
+    }
+    .report-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .video-container, .report-content {
+        width: 100%;
+    }
+}
